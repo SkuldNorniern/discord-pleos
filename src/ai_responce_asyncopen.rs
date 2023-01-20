@@ -9,7 +9,7 @@ pub async fn ai_response(question: String) -> String {
     let request = CreateCompletionRequestArgs::default()
         .model("text-davinci-003")
         .prompt(question)
-        .max_tokens(80_u16)
+        .max_tokens(120_u16)
         .build()
         .unwrap();
 

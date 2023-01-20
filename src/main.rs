@@ -36,8 +36,10 @@ impl EventHandler for Handler {
                 println!("Error sending message: {:?}", why);
             }
         }
-        if msg.content.clone().contains("Hey PLEOS") {
-            let response = ai_responce_asyncopen::ai_response(msg.content.clone()).await;
+        if msg.content.clone().contains("@1064801787208552518>") {
+            let msgs = msg.content.clone();
+            let msgs = msgs.replace("<@!1064801787208552518>", "");
+            let response = ai_responce_asyncopen::ai_response(msgs).await;
             if let Err(why) = msg.channel_id.say(&ctx.http, response).await {
                 println!("Error sending message: {:?}", why);
             }
